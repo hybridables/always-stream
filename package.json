@@ -1,0 +1,45 @@
+{
+  "name": "always-stream",
+  "version": "0.1.2",
+  "description": "Create stream from any value - function, array, string, buffer, promise, number, object and etc. Always returns a function that returns Transform Stream, using [through2][].",
+  "repository": "hybridables/always-stream",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "precommit.silent": true,
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "dependencies": {
+    "callback2stream": "^1.0.1",
+    "lazy-cache": "^2.0.1",
+    "value2stream": "^1.0.0"
+  },
+  "devDependencies": {
+    "mukla": "^0.3.1",
+    "pre-commit": "*"
+  },
+  "files": [
+    "index.js",
+    "utils.js"
+  ],
+  "keywords": [
+    "always-stream"
+  ],
+  "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "lint": {
+      "reflinks": true
+    },
+    "reflinks": [
+      "through2",
+      "callback2stream",
+      "value2stream"
+    ]
+  }
+}
