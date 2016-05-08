@@ -27,19 +27,30 @@
     "always-stream"
   ],
   "verb": {
+    "reflinks": [
+      "callback2stream",
+      "through2",
+      "value2stream"
+    ],
     "run": true,
     "toc": false,
     "layout": "empty",
-    "tasks": [
-      "readme"
-    ],
     "lint": {
       "reflinks": true
     },
-    "reflinks": [
-      "through2",
-      "callback2stream",
-      "value2stream"
-    ]
+    "tasks": [
+      "readme"
+    ],
+    "related": {
+      "list": [
+        "value2stream",
+        "promise2stream",
+        "callback2stream",
+        "letta",
+        "relike",
+        "limon",
+        "postjson"
+      ]
+    }
   }
 }
