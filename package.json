@@ -1,6 +1,6 @@
 {
   "name": "always-stream",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Create stream from any value - function, array, string, buffer, promise, number, object and etc. Always returns a function that returns Transform Stream, using [through2][].",
   "repository": "hybridables/always-stream",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
