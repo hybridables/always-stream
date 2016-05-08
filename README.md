@@ -18,6 +18,60 @@ npm i always-stream --save
 const alwaysStream = require('always-stream')
 ```
 
+### [alwaysStream](index.js#L66)
+> Create a stream from any value.
+
+**Params**
+
+* `val` **{Mixed}**: Any type of value.    
+* `[opts]` **{Object|Function=}**: Directly passed to [value2stream][], [callback2stream][] and [through2][].    
+* `[Promize]` **{Function}**: Promise constructor to be used when no support for native Promise. Can be 2nd argument.    
+* `returns` **{Function}**: That when executed, returns `TransformStream`, using [through2][]  
+
+**Example**
+
+```js
+var fs = require('fs')
+var toStream = require('always-stream')
+
+var numberStream = toStream(123)
+numberStream().on('data', function (val) {
+  console.log(val) // => 123
+})
+var stringStream = toStream('str foo')
+stringStream().on('data', function (val) {
+  console.log(val) // => 'str foo'
+})
+
+var readFile = toStream(fs.readFile)
+readFile('package.json', 'utf8')
+  .on('data', function (val) {
+    var json = JSON.parse(val)
+    console.log(json.name) // => 'always-stream'
+  })
+  .once('error', console.error)
+  .once('end', console.error)
+
+// or sync functions
+var statFile = toStream(fs.statSync)
+statFile('package.json')
+  .on('data', function (stats) {
+    console.log(stats) // => stat object
+  })
+  .once('error', console.error)
+  .once('end', console.error)
+
+// also works for native functions
+// like JSON.parse and JSON.stringify
+// by respect optional arguments
+var stringifyStream = toStream(JSON.stringify)
+stringifyStream({ foo: 'bar' }, null, 2)
+  .on('data', function (val) {
+    console.log(val) // => '{\n  "foo": "bar"\n}'
+  })
+  .once('error', console.error)
+```
+
 ## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/hybridables/always-stream/issues/new).  
 But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines.
@@ -26,9 +80,9 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 
 [![tunnckoCore.tk][author-www-img]][author-www-url] [![keybase tunnckoCore][keybase-img]][keybase-url] [![tunnckoCore npm][author-npm-img]][author-npm-url] [![tunnckoCore twitter][author-twitter-img]][author-twitter-url] [![tunnckoCore github][author-github-img]][author-github-url]
 
-[value2stream]: https://github.com/hybridables/value2stream
 [callback2stream]: https://github.com/hybridables/callback2stream
 [through2]: https://github.com/rvagg/through2
+[value2stream]: https://github.com/hybridables/value2stream
 
 [npmjs-url]: https://www.npmjs.com/package/always-stream
 [npmjs-img]: https://img.shields.io/npm/v/always-stream.svg?label=always-stream
