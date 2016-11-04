@@ -16,7 +16,7 @@
     "value2stream": "^1.0.0"
   },
   "devDependencies": {
-    "mukla": "^0.4.0",
+    "mukla": "^0.4.6",
     "pre-commit": "*"
   },
   "files": [
