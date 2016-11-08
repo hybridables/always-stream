@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "callback2stream": "^1.0.1",
-    "lazy-cache": "^2.0.1",
+    "lazy-cache": "^2.0.2",
     "value2stream": "^1.0.0"
   },
   "devDependencies": {
